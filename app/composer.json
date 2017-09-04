@@ -1,0 +1,10 @@
+{
+    "require" : {
+    },
+    "config" : {
+        "vendor-dir" : "vendor"
+    },
+    "require-dev": {
+        "snowair/phalcon-debugbar": "^1.1"
+    }
+}
