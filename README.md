@@ -1,6 +1,6 @@
 # PhalconTime Application
 
-PhalconTime is a timekeeping tool that helps you keep track on hours spend on clients en projects.
+PhalconTime is a timekeeping tool that helps you track hours spend on clients and projects.
 
 Please write me if you have any feedback.
 
@@ -33,7 +33,7 @@ Or via HTTPS
 $ git clone https://github.com/Videles/PhalconTime.git
 ```
 
-Create the database via either the Phalcon Develper Tools - Migrations or via the database .sql dump file, see app/migrations/phalcon-time.sql
+Create the database via either the Phalcon Developer Tools - Migrations or via the database phalcon-time.sql dump file, see app/migrations/phalcon-time.sql
 
 ### Configuration
 
