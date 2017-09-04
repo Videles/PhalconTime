@@ -14,10 +14,10 @@ switch to the relevant branch.
 
 ### Requirements
 
-* PHP >= 7.0.x (lower version might work but are not tested)
+* PHP >= 7.0.x (lower versions might work but are not tested)
 * [Apache][2] Web Server with [mod_rewrite][3] enabled or [Nginx][4] Web Server
 * Latest stable [Phalcon Framework release][5] extension enabled
-* [MySQL][6] >= 5.7.x (lower version might work but are not tested)
+* [MySQL][6] >= 5.7.x (lower versions might work but are not tested)
 
 ### Installation
 
