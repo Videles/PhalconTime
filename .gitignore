@@ -1,6 +1,7 @@
 Runtime
 cache/
 app/vendor/
+app/config/config_dev.php
 composer.lock
 composer.phar
 *.volt.php
