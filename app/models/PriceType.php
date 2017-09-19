@@ -166,7 +166,6 @@ class PriceType extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("phalcon-time");
 
         $this->addBehavior(new Timestampable([
             'beforeValidationOnCreate' => [

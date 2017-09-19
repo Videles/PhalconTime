@@ -166,7 +166,6 @@ class TimeType extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("phalcon-time");
 
         $this->hasMany('id', __NAMESPACE__ . '\TimeRegistration', 'time_type_id', [
             'alias' => 'TimeRegistration',

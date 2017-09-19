@@ -315,7 +315,6 @@ class TimeRegistration extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("phalcon-time");
 
         $this->belongsTo('time_type_id', __NAMESPACE__ . '\TimeType', 'id', [
             'alias' => 'TimeType'

@@ -317,7 +317,6 @@ class User extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("phalcon-time");
 
         $this->hasMany('id', __NAMESPACE__ . '\TimeRegistration', 'user_id', [
             'alias' => 'TimeRegistration',

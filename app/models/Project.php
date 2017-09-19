@@ -466,7 +466,6 @@ class Project extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("phalcon-time");
 
         $this->belongsTo('client_id', __NAMESPACE__ . '\Client', 'id', [
             'alias' => 'client'
