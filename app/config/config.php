@@ -16,7 +16,6 @@ return new \Phalcon\Config([
         'controllersDir'    => APP_PATH . '/controllers/',
         'modelsDir'         => APP_PATH . '/models/',
         'viewsDir'          => APP_PATH . '/views/',
-        'pluginsDir'        => APP_PATH . '/plugins/',
         'formsDir'          => APP_PATH . '/forms/',
         'formsElementsDir'  => APP_PATH . '/forms/elements/',
         'vendorDir'         => APP_PATH . '/vendor/',

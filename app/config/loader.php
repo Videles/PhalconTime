@@ -15,12 +15,14 @@ $loader->registerDirs(
 /**
  * Register custom namespaces for the Phalcon autoloader
  */
-$loader->registerNamespaces(array(
-  'PhalconTime\Models' => $config->application->modelsDir,
-  'PhalconTime\Controllers' => $config->application->controllersDir,
-  'PhalconTime\Forms' => $config->application->formsDir,
-  'PhalconTime\Forms\Elements' => $config->application->formsElementsDir
-));
+$loader->registerNamespaces(
+    [
+        'PhalconTime\Models'         => $config->application->modelsDir,
+        'PhalconTime\Controllers'    => $config->application->controllersDir,
+        'PhalconTime\Forms'          => $config->application->formsDir,
+        'PhalconTime\Forms\Elements' => $config->application->formsElementsDir
+    ]
+);
 
 /**
  * Register Files, Composer autoloader
