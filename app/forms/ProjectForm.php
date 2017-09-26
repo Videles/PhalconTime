@@ -255,7 +255,7 @@ class ProjectForm extends Form
         $delivered->setFilters(
             [
                 "striptags",
-                "integer",
+                "int",
             ]
         );
         $this->add($delivered);
