@@ -49,6 +49,13 @@ class User extends \Phalcon\Mvc\Model
 
     /**
      *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
+     */
+    protected $role_id;
+
+    /**
+     *
      * @var string
      * @Column(type="string", length=128, nullable=true)
      */
@@ -143,6 +150,19 @@ class User extends \Phalcon\Mvc\Model
     public function setPassword($password)
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field role_id
+     *
+     * @param integer $role_id
+     * @return $this
+     */
+    public function setRoleId($role_id)
+    {
+        $this->role_id = $role_id;
 
         return $this;
     }
@@ -260,6 +280,16 @@ class User extends \Phalcon\Mvc\Model
     public function getPassword()
     {
         return $this->password;
+    }
+
+    /**
+     * Returns the value of field role id
+     *
+     * @return integer
+     */
+    public function getRoleId()
+    {
+        return $this->role_id;
     }
 
     /**

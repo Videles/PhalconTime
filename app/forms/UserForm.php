@@ -8,12 +8,15 @@ use Phalcon\Forms\Element\Hidden;
 use Phalcon\Forms\Element\Password;
 use Phalcon\Forms\Element\Check;
 use Phalcon\Forms\Element\File;
+use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\File as FileValidator;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Identical;
 use Phalcon\Validation\Validator\StringLength;
 use Phalcon\Validation\Validator\Confirmation;
+
+use PhalconTime\Models\UserRole;
 
 class UserForm extends Form
 {
@@ -175,6 +178,26 @@ class UserForm extends Form
             ]
         );
         $this->add($file);
+
+        // Role
+        $roleId = new Select('role_id', UserRole::find(), [
+            'using'      => ['id', 'name'],
+            'useEmpty'   => true,
+            'emptyText'  => 'Select a role',
+            'emptyValue' => '',
+            'class'      => 'form-control',
+        ]);
+        $roleId->setLabel('Role');
+        $roleId->addValidators(
+            [
+                new PresenceOf(
+                    [
+                        "message" => "Selecting a role is required",
+                    ]
+                )
+            ]
+        );
+        $this->add($roleId);
 
         // Active
         $active = new Check(

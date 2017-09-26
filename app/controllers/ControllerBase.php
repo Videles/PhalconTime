@@ -116,7 +116,7 @@ class ControllerBase extends Controller
         $controllerName = $dispatcher->getControllerName();
         $actionName     = $dispatcher->getActionName();
 
-        if (!$this->acl->isAllowed('user', $controllerName, $actionName)) {
+        if (!$this->acl->isAllowed('administrator', $controllerName, $actionName)) {
             $this->flash->notice('You don\'t have access to this module: ' . $controllerName . ':' . $actionName);
 
             $dispatcher->forward([
