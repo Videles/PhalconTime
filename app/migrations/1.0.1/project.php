@@ -6,9 +6,9 @@ use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
 /**
- * Class ClientContactMigration_100
+ * Class ProjectMigration_101
  */
-class ClientContactMigration_100 extends Migration
+class ProjectMigration_101 extends Migration
 {
     /**
      * Define the table structure
@@ -17,7 +17,7 @@ class ClientContactMigration_100 extends Migration
      */
     public function morph()
     {
-        $this->morphTable('client_contact', [
+        $this->morphTable('project', [
                 'columns' => [
                     new Column(
                         'id',
@@ -30,93 +30,104 @@ class ClientContactMigration_100 extends Migration
                         ]
                     ),
                     new Column(
-                        'client_contact_id',
+                        'client_id',
                         [
                             'type' => Column::TYPE_INTEGER,
+                            'notNull' => true,
                             'size' => 11,
                             'after' => 'id'
                         ]
                     ),
                     new Column(
-                        'firstname',
+                        'client_contact_id',
+                        [
+                            'type' => Column::TYPE_INTEGER,
+                            'notNull' => true,
+                            'size' => 11,
+                            'after' => 'client_id'
+                        ]
+                    ),
+                    new Column(
+                        'client_purchase_number',
                         [
                             'type' => Column::TYPE_VARCHAR,
-                            'size' => 255,
+                            'size' => 64,
                             'after' => 'client_contact_id'
                         ]
                     ),
                     new Column(
-                        'addition',
+                        'project_status_id',
                         [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 255,
-                            'after' => 'firstname'
+                            'type' => Column::TYPE_INTEGER,
+                            'notNull' => true,
+                            'size' => 11,
+                            'after' => 'client_purchase_number'
                         ]
                     ),
                     new Column(
-                        'lastname',
+                        'price_type_id',
                         [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 255,
-                            'after' => 'addition'
+                            'type' => Column::TYPE_INTEGER,
+                            'notNull' => true,
+                            'size' => 11,
+                            'after' => 'project_status_id'
                         ]
                     ),
                     new Column(
-                        'phonetic',
+                        'price_type_value',
+                        [
+                            'type' => Column::TYPE_FLOAT,
+                            'size' => 1,
+                            'after' => 'price_type_id'
+                        ]
+                    ),
+                    new Column(
+                        'estimated_time',
+                        [
+                            'type' => Column::TYPE_FLOAT,
+                            'size' => 1,
+                            'after' => 'price_type_value'
+                        ]
+                    ),
+                    new Column(
+                        'name',
                         [
                             'type' => Column::TYPE_VARCHAR,
+                            'notNull' => true,
                             'size' => 64,
-                            'after' => 'lastname'
+                            'after' => 'estimated_time'
                         ]
                     ),
                     new Column(
-                        'phone',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 16,
-                            'after' => 'phonetic'
-                        ]
-                    ),
-                    new Column(
-                        'fax',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 16,
-                            'after' => 'phone'
-                        ]
-                    ),
-                    new Column(
-                        'mobile',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 16,
-                            'after' => 'fax'
-                        ]
-                    ),
-                    new Column(
-                        'email',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 255,
-                            'after' => 'mobile'
-                        ]
-                    ),
-                    new Column(
-                        'note',
+                        'description',
                         [
                             'type' => Column::TYPE_TEXT,
                             'size' => 1,
-                            'after' => 'email'
+                            'after' => 'name'
                         ]
                     ),
                     new Column(
-                        'active',
+                        'delivery_date',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 16,
+                            'after' => 'description'
+                        ]
+                    ),
+                    new Column(
+                        'delivered',
                         [
                             'type' => Column::TYPE_INTEGER,
-                            'default' => "1",
-                            'notNull' => true,
                             'size' => 1,
-                            'after' => 'note'
+                            'after' => 'delivery_date'
+                        ]
+                    ),
+                    new Column(
+                        'delivered_date',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 16,
+                            'after' => 'delivered'
                         ]
                     ),
                     new Column(
@@ -124,7 +135,7 @@ class ClientContactMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
-                            'after' => 'active'
+                            'after' => 'delivered_date'
                         ]
                     ),
                     new Column(

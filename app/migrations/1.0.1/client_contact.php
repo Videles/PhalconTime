@@ -6,9 +6,9 @@ use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
 /**
- * Class TimeRegistrationMigration_100
+ * Class ClientContactMigration_101
  */
-class TimeRegistrationMigration_100 extends Migration
+class ClientContactMigration_101 extends Migration
 {
     /**
      * Define the table structure
@@ -17,7 +17,7 @@ class TimeRegistrationMigration_100 extends Migration
      */
     public function morph()
     {
-        $this->morphTable('time_registration', [
+        $this->morphTable('client_contact', [
                 'columns' => [
                     new Column(
                         'id',
@@ -30,7 +30,7 @@ class TimeRegistrationMigration_100 extends Migration
                         ]
                     ),
                     new Column(
-                        'user_id',
+                        'client_contact_id',
                         [
                             'type' => Column::TYPE_INTEGER,
                             'size' => 11,
@@ -38,54 +38,85 @@ class TimeRegistrationMigration_100 extends Migration
                         ]
                     ),
                     new Column(
-                        'project_id',
-                        [
-                            'type' => Column::TYPE_INTEGER,
-                            'notNull' => true,
-                            'size' => 11,
-                            'after' => 'user_id'
-                        ]
-                    ),
-                    new Column(
-                        'time_type_id',
-                        [
-                            'type' => Column::TYPE_INTEGER,
-                            'notNull' => true,
-                            'size' => 11,
-                            'after' => 'project_id'
-                        ]
-                    ),
-                    new Column(
-                        'start_time',
+                        'firstname',
                         [
                             'type' => Column::TYPE_VARCHAR,
-                            'size' => 5,
-                            'after' => 'time_type_id'
+                            'size' => 255,
+                            'after' => 'client_contact_id'
                         ]
                     ),
                     new Column(
-                        'end_time',
+                        'addition',
                         [
                             'type' => Column::TYPE_VARCHAR,
-                            'size' => 5,
-                            'after' => 'start_time'
+                            'size' => 255,
+                            'after' => 'firstname'
                         ]
                     ),
                     new Column(
-                        'total_time',
+                        'lastname',
                         [
                             'type' => Column::TYPE_VARCHAR,
-                            'size' => 11,
-                            'after' => 'end_time'
+                            'size' => 255,
+                            'after' => 'addition'
                         ]
                     ),
                     new Column(
-                        'description',
+                        'phonetic',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 64,
+                            'after' => 'lastname'
+                        ]
+                    ),
+                    new Column(
+                        'phone',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 16,
+                            'after' => 'phonetic'
+                        ]
+                    ),
+                    new Column(
+                        'fax',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 16,
+                            'after' => 'phone'
+                        ]
+                    ),
+                    new Column(
+                        'mobile',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 16,
+                            'after' => 'fax'
+                        ]
+                    ),
+                    new Column(
+                        'email',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 255,
+                            'after' => 'mobile'
+                        ]
+                    ),
+                    new Column(
+                        'note',
                         [
                             'type' => Column::TYPE_TEXT,
+                            'size' => 1,
+                            'after' => 'email'
+                        ]
+                    ),
+                    new Column(
+                        'active',
+                        [
+                            'type' => Column::TYPE_INTEGER,
+                            'default' => "1",
                             'notNull' => true,
                             'size' => 1,
-                            'after' => 'total_time'
+                            'after' => 'note'
                         ]
                     ),
                     new Column(
@@ -93,7 +124,7 @@ class TimeRegistrationMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
-                            'after' => 'description'
+                            'after' => 'active'
                         ]
                     ),
                     new Column(

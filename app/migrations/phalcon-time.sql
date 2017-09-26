@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 04 sep 2017 om 11:15
+-- Gegenereerd op: 26 sep 2017 om 14:12
 -- Serverversie: 5.7.14
 -- PHP-versie: 7.0.10
 
@@ -90,8 +90,8 @@ CREATE TABLE `price_type` (
 --
 
 INSERT INTO `price_type` (`id`, `name`, `active`, `created_at`, `modified`) VALUES
-(2, 'Fixed', 1, '2017-04-24 08:30:45', NULL),
-(1, 'Hourly', 1, '2017-04-24 08:30:51', NULL);
+(2, 'Fixed', 1, NULL, NULL),
+(1, 'Hourly', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,8 +136,8 @@ CREATE TABLE `project_status` (
 --
 
 INSERT INTO `project_status` (`id`, `name`, `active`, `created_at`, `modified`) VALUES
-(1, 'Open', 1, '2017-04-24 08:30:00', '2017-04-24 08:30:18'),
-(2, 'Closed', 1, '2017-04-24 08:30:24', NULL);
+(1, 'Open', 1, NULL, NULL),
+(2, 'Closed', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,8 +177,8 @@ CREATE TABLE `time_type` (
 --
 
 INSERT INTO `time_type` (`id`, `name`, `active`, `created_at`, `modified`) VALUES
-(1, 'Support', 1, '2017-04-24 08:33:25', '2017-04-24 08:33:39'),
-(2, 'Maintenance', 1, '2017-04-24 08:33:59', NULL);
+(1, 'Support', 1, NULL, NULL),
+(2, 'Maintenance', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -192,6 +192,7 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `password` varchar(60) NOT NULL,
+  `role_id` int(11) DEFAULT NULL,
   `token` varchar(128) DEFAULT NULL,
   `active` int(1) NOT NULL DEFAULT '1',
   `last_logged` datetime DEFAULT NULL,
@@ -203,8 +204,29 @@ CREATE TABLE `user` (
 -- Gegevens worden geëxporteerd voor tabel `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `token`, `active`, `last_logged`, `modified`, `created_at`) VALUES
-(1, 'Admin', 'example@example.com', NULL, '$2y$12$b2V6Q1RiTU5OZnNuODBxSuNRWifXh6kqDe/ScsprR9AveJ485/Zli', NULL, 1, NULL, NULL, '2017-09-04 10:53:06');
+INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `token`, `active`, `last_logged`, `modified`, `created_at`) VALUES
+(1, 'Admin', 'example@example.com', NULL, '$2y$12$b2V6Q1RiTU5OZnNuODBxSuNRWifXh6kqDe/ScsprR9AveJ485/Zli', 2, NULL, 1, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `user_role`
+--
+
+CREATE TABLE `user_role` (
+  `id` int(11) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modifief` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `user_role`
+--
+
+INSERT INTO `user_role` (`id`, `name`, `created_at`, `modifief`) VALUES
+(1, 'user', NULL, NULL),
+(2, 'administrator', NULL, NULL);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -259,6 +281,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexen voor tabel `user_role`
+--
+ALTER TABLE `user_role`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -301,7 +329,12 @@ ALTER TABLE `time_type`
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT voor een tabel `user_role`
+--
+ALTER TABLE `user_role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

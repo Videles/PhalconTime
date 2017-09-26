@@ -6,9 +6,9 @@ use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
 /**
- * Class TimeTypeMigration_100
+ * Class TimeTypeMigration_101
  */
-class TimeTypeMigration_100 extends Migration
+class TimeTypeMigration_101 extends Migration
 {
     /**
      * Define the table structure

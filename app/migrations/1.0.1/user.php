@@ -6,9 +6,9 @@ use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
 /**
- * Class ProjectStatusMigration_100
+ * Class UserMigration_101
  */
-class ProjectStatusMigration_100 extends Migration
+class UserMigration_101 extends Migration
 {
     /**
      * Define the table structure
@@ -17,7 +17,7 @@ class ProjectStatusMigration_100 extends Migration
      */
     public function morph()
     {
-        $this->morphTable('project_status', [
+        $this->morphTable('user', [
                 'columns' => [
                     new Column(
                         'id',
@@ -34,8 +34,50 @@ class ProjectStatusMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_VARCHAR,
                             'notNull' => true,
-                            'size' => 32,
+                            'size' => 64,
                             'after' => 'id'
+                        ]
+                    ),
+                    new Column(
+                        'email',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'notNull' => true,
+                            'size' => 255,
+                            'after' => 'name'
+                        ]
+                    ),
+                    new Column(
+                        'image',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 255,
+                            'after' => 'email'
+                        ]
+                    ),
+                    new Column(
+                        'password',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'notNull' => true,
+                            'size' => 60,
+                            'after' => 'image'
+                        ]
+                    ),
+                    new Column(
+                        'role_id',
+                        [
+                            'type' => Column::TYPE_INTEGER,
+                            'size' => 11,
+                            'after' => 'password'
+                        ]
+                    ),
+                    new Column(
+                        'token',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 128,
+                            'after' => 'role_id'
                         ]
                     ),
                     new Column(
@@ -45,11 +87,11 @@ class ProjectStatusMigration_100 extends Migration
                             'default' => "1",
                             'notNull' => true,
                             'size' => 1,
-                            'after' => 'name'
+                            'after' => 'token'
                         ]
                     ),
                     new Column(
-                        'created_at',
+                        'last_logged',
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
@@ -61,7 +103,15 @@ class ProjectStatusMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
-                            'after' => 'created_at'
+                            'after' => 'last_logged'
+                        ]
+                    ),
+                    new Column(
+                        'created_at',
+                        [
+                            'type' => Column::TYPE_DATETIME,
+                            'size' => 1,
+                            'after' => 'modified'
                         ]
                     )
                 ],
@@ -70,7 +120,7 @@ class ProjectStatusMigration_100 extends Migration
                 ],
                 'options' => [
                     'TABLE_TYPE' => 'BASE TABLE',
-                    'AUTO_INCREMENT' => '3',
+                    'AUTO_INCREMENT' => '4',
                     'ENGINE' => 'MyISAM',
                     'TABLE_COLLATION' => 'utf8_general_ci'
                 ],

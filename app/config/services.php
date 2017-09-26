@@ -13,7 +13,7 @@ use Phalcon\Security;
  * Shared configuration service
  */
 $di->setShared('config', function () {
-    return require APP_PATH . "/config/config_dev.php";
+    return require APP_PATH . "/config/config.php";
 });
 
 /**

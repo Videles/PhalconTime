@@ -6,9 +6,9 @@ use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
 /**
- * Class PriceTypeMigration_100
+ * Class TimeRegistrationMigration_101
  */
-class PriceTypeMigration_100 extends Migration
+class TimeRegistrationMigration_101 extends Migration
 {
     /**
      * Define the table structure
@@ -17,7 +17,7 @@ class PriceTypeMigration_100 extends Migration
      */
     public function morph()
     {
-        $this->morphTable('price_type', [
+        $this->morphTable('time_registration', [
                 'columns' => [
                     new Column(
                         'id',
@@ -30,22 +30,62 @@ class PriceTypeMigration_100 extends Migration
                         ]
                     ),
                     new Column(
-                        'name',
+                        'user_id',
                         [
-                            'type' => Column::TYPE_VARCHAR,
-                            'notNull' => true,
-                            'size' => 32,
+                            'type' => Column::TYPE_INTEGER,
+                            'size' => 11,
                             'after' => 'id'
                         ]
                     ),
                     new Column(
-                        'active',
+                        'project_id',
                         [
                             'type' => Column::TYPE_INTEGER,
-                            'default' => "1",
+                            'notNull' => true,
+                            'size' => 11,
+                            'after' => 'user_id'
+                        ]
+                    ),
+                    new Column(
+                        'time_type_id',
+                        [
+                            'type' => Column::TYPE_INTEGER,
+                            'notNull' => true,
+                            'size' => 11,
+                            'after' => 'project_id'
+                        ]
+                    ),
+                    new Column(
+                        'start_time',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 5,
+                            'after' => 'time_type_id'
+                        ]
+                    ),
+                    new Column(
+                        'end_time',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 5,
+                            'after' => 'start_time'
+                        ]
+                    ),
+                    new Column(
+                        'total_time',
+                        [
+                            'type' => Column::TYPE_VARCHAR,
+                            'size' => 11,
+                            'after' => 'end_time'
+                        ]
+                    ),
+                    new Column(
+                        'description',
+                        [
+                            'type' => Column::TYPE_TEXT,
                             'notNull' => true,
                             'size' => 1,
-                            'after' => 'name'
+                            'after' => 'total_time'
                         ]
                     ),
                     new Column(
@@ -53,7 +93,7 @@ class PriceTypeMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
-                            'after' => 'active'
+                            'after' => 'description'
                         ]
                     ),
                     new Column(
@@ -70,7 +110,7 @@ class PriceTypeMigration_100 extends Migration
                 ],
                 'options' => [
                     'TABLE_TYPE' => 'BASE TABLE',
-                    'AUTO_INCREMENT' => '3',
+                    'AUTO_INCREMENT' => '1',
                     'ENGINE' => 'MyISAM',
                     'TABLE_COLLATION' => 'utf8_general_ci'
                 ],

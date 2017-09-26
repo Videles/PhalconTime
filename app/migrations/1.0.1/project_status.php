@@ -6,9 +6,9 @@ use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
 /**
- * Class UserMigration_100
+ * Class ProjectStatusMigration_101
  */
-class UserMigration_100 extends Migration
+class ProjectStatusMigration_101 extends Migration
 {
     /**
      * Define the table structure
@@ -17,7 +17,7 @@ class UserMigration_100 extends Migration
      */
     public function morph()
     {
-        $this->morphTable('user', [
+        $this->morphTable('project_status', [
                 'columns' => [
                     new Column(
                         'id',
@@ -34,42 +34,8 @@ class UserMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_VARCHAR,
                             'notNull' => true,
-                            'size' => 64,
+                            'size' => 32,
                             'after' => 'id'
-                        ]
-                    ),
-                    new Column(
-                        'email',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'notNull' => true,
-                            'size' => 255,
-                            'after' => 'name'
-                        ]
-                    ),
-                    new Column(
-                        'image',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 255,
-                            'after' => 'email'
-                        ]
-                    ),
-                    new Column(
-                        'password',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'notNull' => true,
-                            'size' => 60,
-                            'after' => 'image'
-                        ]
-                    ),
-                    new Column(
-                        'token',
-                        [
-                            'type' => Column::TYPE_VARCHAR,
-                            'size' => 128,
-                            'after' => 'password'
                         ]
                     ),
                     new Column(
@@ -79,11 +45,11 @@ class UserMigration_100 extends Migration
                             'default' => "1",
                             'notNull' => true,
                             'size' => 1,
-                            'after' => 'token'
+                            'after' => 'name'
                         ]
                     ),
                     new Column(
-                        'last_logged',
+                        'created_at',
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
@@ -95,15 +61,7 @@ class UserMigration_100 extends Migration
                         [
                             'type' => Column::TYPE_DATETIME,
                             'size' => 1,
-                            'after' => 'last_logged'
-                        ]
-                    ),
-                    new Column(
-                        'created_at',
-                        [
-                            'type' => Column::TYPE_DATETIME,
-                            'size' => 1,
-                            'after' => 'modified'
+                            'after' => 'created_at'
                         ]
                     )
                 ],
@@ -112,7 +70,7 @@ class UserMigration_100 extends Migration
                 ],
                 'options' => [
                     'TABLE_TYPE' => 'BASE TABLE',
-                    'AUTO_INCREMENT' => '36',
+                    'AUTO_INCREMENT' => '3',
                     'ENGINE' => 'MyISAM',
                     'TABLE_COLLATION' => 'utf8_general_ci'
                 ],
