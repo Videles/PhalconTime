@@ -4,6 +4,7 @@ use PhalconTime\Forms\LoginForm;
 use PhalconTime\Forms\RequestResetForm;
 use PhalconTime\Forms\ResetPasswordForm;
 use PhalconTime\Models\User;
+use PhalconTime\Models\UserRole;
 use Phalcon\Security;
 use Phalcon\Security\Random;
 //use Phalcon\Mvc\Url;
@@ -29,14 +30,16 @@ class AuthController extends Controller
         $password = $this->request->getPost('password');
         $csrf     = $this->request->getPost('csrf');
 
-        $user = User::findFirstByName($username);
+        $user     = User::findFirstByName($username);
+        $role     = UserRole::findFirstById($user->role_id);
 
-        if($user) {
+        if($user && $user->active == 1) {
             if($this->security->checkToken($csrf, $this->security->getSessionToken()) && $this->security->checkHash($password, $user->password)) {
                 $this->session->set('auth-identity', [
-                    'id' => $user->id,
+                    'id'       => $user->id,
                     'username' => $user->name,
-                    'image' => $user->image
+                    'image'    => $user->image,
+                    'role'     => $role->name
                 ]);
                 return $this->dispatcher->forward(["controller" => "project", "action" => "index"]);
             }

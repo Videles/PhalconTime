@@ -20,6 +20,7 @@ class ControllerBase extends Controller
         $this->view->setVar('uid', $this->session->get('auth-identity')['id']);
         $this->view->setVar('userName', $this->session->get('auth-identity')['username']);
         $this->view->setVar('userImage', $this->session->get('auth-identity')['image']);
+        $this->view->setVar('role', $this->session->get('auth-identity')['role']);
 
         // More information https://olddocs.phalconphp.com/en/3.0.3/api/Phalcon_Acl_Adapter_Memory.html
         $this->acl = new \Phalcon\Acl\Adapter\Memory();
@@ -115,9 +116,13 @@ class ControllerBase extends Controller
 
         $controllerName = $dispatcher->getControllerName();
         $actionName     = $dispatcher->getActionName();
+        $userRole       = $this->session->get('auth-identity')['role'];
 
-        if (!$this->acl->isAllowed('administrator', $controllerName, $actionName)) {
-            $this->flash->notice('You don\'t have access to this module: ' . $controllerName . ':' . $actionName);
+        if(!$userRole) {
+            $userRole = 'guest';
+        }
+        elseif (!$this->acl->isAllowed($userRole, $controllerName, $actionName)) {
+            $this->flash->error('You don\'t have access to this module: ' . $controllerName . ':' . $actionName);
 
             $dispatcher->forward([
                 'controller' => 'index',

@@ -45,7 +45,9 @@
                             <td width="150px" >{{ client.modified }}</td>
                             <td width="120px">
                                 <a class="btn btn-default btn-sm" href="{{ url("client/edit/" ~ client.id) }}" title="update" ><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-default btn-sm" href="{{ url("client/confirm/" ~ client.id) }}" title="delete" ><i class="fa fa-trash"></i></a>
+                                {% if role == 'administrator' %}
+                                    <a class="btn btn-default btn-sm" href="{{ url("client/confirm/" ~ client.id) }}" title="delete" ><i class="fa fa-trash"></i></a>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}

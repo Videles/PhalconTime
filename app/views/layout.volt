@@ -64,6 +64,7 @@
               </li>
               <!-- Control Sidebar Toggle Button -->
               <!-- Tasks Menu -->
+              {% if role == 'administrator' %}
               <li class="dropdown tasks-menu">
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -80,6 +81,7 @@
                   </li>
                 </ul>
               </li>
+              {% endif %}
             </ul>
           </div>
         </nav>

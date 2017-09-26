@@ -48,7 +48,9 @@
                                 <td width="150px" >{{ time.modified }}</td>
                                 <td width="120px" >
                                     <a class="btn btn-default btn-sm" href="{{ url("timeregistration/edit/" ~ time.id) }}" title="update" ><i class="fa fa-pencil"></i></a>
-                                    <a class="btn btn-default btn-sm" href="{{ url("timeregistration/confirm/" ~ time.id) }}" title="delete" ><i class="fa fa-trash"></i></a>
+                                    {% if role == 'administrator' %}
+                                        <a class="btn btn-default btn-sm" href="{{ url("timeregistration/confirm/" ~ time.id) }}" title="delete" ><i class="fa fa-trash"></i></a>
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
