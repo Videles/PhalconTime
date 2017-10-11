@@ -50,19 +50,20 @@ $di->setShared('view', function () {
 
             $volt = new VoltEngine($view, $this);
 
-            if($config->settings->development === false) {
+            if($config->settings->development === FALSE) {
                 $volt->setOptions([
                     'compiledPath' => $config->application->cacheDir,
                     'compiledSeparator' => '_',
-                    'compileAlways' => TRUE // use if problems with updating files exist
+                    'compileAlways' => FALSE
                 ]);
+            }
 
-                // Alternative to force clear cache and re-compile files
-                // array_map('unlink', glob($config->application->cacheDir . 'volt/*.php'));
-                // $volt->setOptions(array(
-                //     'compileAlways' => TRUE,
-                // ));
-
+            if($config->settings->development === TRUE) {
+                array_map('unlink', glob($config->application->cacheDir . '*.php'));
+                $volt->setOptions([
+                    'compiledSeparator' => '_',
+                    'compileAlways' => TRUE
+                ]);
             }
 
             // Custom volt functions

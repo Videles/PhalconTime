@@ -102,26 +102,23 @@
 
           <ul class="sidebar-menu">
             <li class="header">Mainmenu</li>
-            <li><a href="{{ url("client/index/") }}"><i class="fa fa-user"></i> <span>Clients</span></a></li>
-            <li><a href="{{ url("clientcontact/index/") }}"><i class="fa fa-users"></i> <span>Client Contacts</span></a></li>
-            <li><a href="{{ url("project/index/") }}"><i class="fa fa-square"></i> <span>Projects</span></a></li>
-            <li><a href="{{ url("timeregistration/index/") }}"><i class="fa fa-square"></i> <span>Quick registration</span></a></li>
-            {#<li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-folder"></i> <span>Uploads</span></a></li>
-            <li><a href="#"><i class="fa fa-folder"></i> <span>Dossiers</span></a></li>
+            {#<li><a href="{{ static_url() }}"><i class="fa fa-tachometer" ></i> <span>Dashboard</span></a></li>#}
             <li class="treeview">
-              <a href="#"><i class="fa fa-folder"></i> <span>Verkoop</span>
+              <a href="{{ static_url() }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-folder"></i> <span>Pagina 1</span></a></li>
-                <li><a href="#"><i class="fa fa-folder"></i> <span>Pagina 2</span></a></li>
+                <li><a href="#"><i class="fa fa-folder"></i> <span>User 1</span></a></li>
+                <li><a href="#"><i class="fa fa-folder"></i> <span>User 2</span></a></li>
                 <li><a href="#"><i class="fa fa-folder"></i> <span>Etc..</span></a></li>
               </ul>
             </li>
-            <li><a href="#"><i class="fa fa-book"></i> <span>Documentatie</span></a></li>#}
+            <li><a href="{{ url("client/index/") }}"><i class="fa fa-user"></i> <span>Clients</span></a></li>
+            <li><a href="{{ url("clientcontact/index/") }}"><i class="fa fa-users"></i> <span>Client Contacts</span></a></li>
+            <li><a href="{{ url("project/index/") }}"><i class="fa fa-folder"></i> <span>Projects</span></a></li>
+            <li><a href="{{ url("timeregistration/index/") }}"><i class="fa fa-clock-o"></i> <span>Quick registration</span></a></li>
           </ul>
         </section>
       </aside>
