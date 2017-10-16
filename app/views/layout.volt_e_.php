@@ -3,7 +3,7 @@ a:11:{i:0;s:152:"<!DOCTYPE html>
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>";s:5:"title";N;i:1;s:5794:"</title>
+      <title>";s:5:"title";N;i:1;s:5764:"</title>
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
       <?= $this->tag->stylesheetLink('css/bootstrap.min.css') ?>
@@ -89,12 +89,8 @@ a:11:{i:0;s:152:"<!DOCTYPE html>
 
       <aside class="main-sidebar">
         <section class="sidebar">
-
-          
-
           <ul class="sidebar-menu">
             <li class="header">Mainmenu</li>
-            
             <li class="treeview">
               <a href="<?= $this->url->getStatic() ?>"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
                 <span class="pull-right-container">
@@ -123,16 +119,16 @@ a:11:{i:0;s:152:"<!DOCTYPE html>
         <section class="content">
             ";s:13:"flashMessages";a:3:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:40:"
                 
-                    ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:134;}i:1;a:7:{s:4:"type";i:304;s:8:"variable";s:8:"messages";s:3:"key";s:4:"type";s:4:"expr";a:4:{s:4:"type";i:350;s:4:"name";a:5:{s:4:"type";i:46;s:4:"left";a:4:{s:4:"type";i:265;s:5:"value";s:5:"flash";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:134;}s:5:"right";a:4:{s:4:"type";i:265;s:5:"value";s:11:"getMessages";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:134;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:134;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:134;}s:16:"block_statements";a:3:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:26:"
-                        ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:135;}i:1;a:6:{s:4:"type";i:304;s:8:"variable";s:7:"message";s:4:"expr";a:4:{s:4:"type";i:265;s:5:"value";s:8:"messages";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:135;}s:16:"block_statements";a:5:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:54:"
-                            <div class="alert alert-";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:136;}i:1;a:4:{s:4:"type";i:359;s:4:"expr";a:4:{s:4:"type";i:265;s:5:"value";s:4:"type";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:136;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:138;}i:2;a:4:{s:4:"type";i:357;s:5:"value";s:161:"">
+                    ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:122;}i:1;a:7:{s:4:"type";i:304;s:8:"variable";s:8:"messages";s:3:"key";s:4:"type";s:4:"expr";a:4:{s:4:"type";i:350;s:4:"name";a:5:{s:4:"type";i:46;s:4:"left";a:4:{s:4:"type";i:265;s:5:"value";s:5:"flash";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:122;}s:5:"right";a:4:{s:4:"type";i:265;s:5:"value";s:11:"getMessages";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:122;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:122;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:122;}s:16:"block_statements";a:3:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:26:"
+                        ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:123;}i:1;a:6:{s:4:"type";i:304;s:8:"variable";s:7:"message";s:4:"expr";a:4:{s:4:"type";i:265;s:5:"value";s:8:"messages";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:123;}s:16:"block_statements";a:5:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:54:"
+                            <div class="alert alert-";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:124;}i:1;a:4:{s:4:"type";i:359;s:4:"expr";a:4:{s:4:"type";i:265;s:5:"value";s:4:"type";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:124;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:126;}i:2;a:4:{s:4:"type";i:357;s:5:"value";s:161:"">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <h4>";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:138;}i:3;a:4:{s:4:"type";i:359;s:4:"expr";a:4:{s:4:"type";i:265;s:5:"value";s:7:"message";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:138;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:140;}i:4;a:4:{s:4:"type";i:357;s:5:"value";s:67:"</h4>
+                                <h4>";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:126;}i:3;a:4:{s:4:"type";i:359;s:4:"expr";a:4:{s:4:"type";i:265;s:5:"value";s:7:"message";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:126;}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:128;}i:4;a:4:{s:4:"type";i:357;s:5:"value";s:67:"</h4>
                             </div>
-                        ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:140;}}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:141;}i:2;a:4:{s:4:"type";i:357;s:5:"value";s:22:"
-                    ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:141;}}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:143;}i:2;a:4:{s:4:"type";i:357;s:5:"value";s:32:"
+                        ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:128;}}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:129;}i:2;a:4:{s:4:"type";i:357;s:5:"value";s:22:"
+                    ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:129;}}s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:131;}i:2;a:4:{s:4:"type";i:357;s:5:"value";s:32:"
                 
-            ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:143;}}i:3;s:16:"
+            ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:131;}}i:3;s:16:"
 
             ";s:7:"content";N;i:4;s:1304:"
         </section>
@@ -160,7 +156,7 @@ a:11:{i:0;s:152:"<!DOCTYPE html>
 
     ";s:11:"javascripts";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:47:"
         <!-- Page dependend scripts -->
-    ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:171;}}i:5;s:26:"
+    ";s:4:"file";s:48:"C:\wamp64\www\phalcon-time/app/views/layout.volt";s:4:"line";i:159;}}i:5;s:26:"
 
     </body>
 </html>

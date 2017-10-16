@@ -6,6 +6,7 @@ composer.lock
 composer.phar
 *.volt.php
 *.volt%%e%%.php
+*.volt_e_.php
 public/webtools.config.php
 public/webtools.php
 public/css/webtools.css
