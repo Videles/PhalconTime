@@ -37,7 +37,7 @@
                             <td>{{ contact.Client.name }}</td>
                             <td>{{ contact.phone }}</td>
                             <td>{{ contact.mobile }}</td>
-                            <td>{{ contact.email }}</td>
+                            <td><a href="mailto:{{ contact.email }}" >{{ contact.email }}</a></td>
                             <td width="150px" >{{ contact.modified }}</td>
                             <td width="120px" >
                                 <a class="btn btn-default btn-sm" href="{{ url("clientcontact/edit/" ~ contact.id) }}" title="update" ><i class="fa fa-pencil"></i></a>

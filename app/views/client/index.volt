@@ -41,7 +41,7 @@
                             <td>{{ client.city }}</td>
                             <td>{{ client.phone }}</td>
                             <td>{{ client.mobile }}</td>
-                            <td>{{ client.email }}</td>
+                            <td><a href="mailto:{{ client.email }}" >{{ client.email }}</a></td>
                             <td width="150px" >{{ client.modified }}</td>
                             <td width="120px">
                                 <a class="btn btn-default btn-sm" href="{{ url("client/edit/" ~ client.id) }}" title="update" ><i class="fa fa-pencil"></i></a>
