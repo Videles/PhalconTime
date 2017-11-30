@@ -91,6 +91,7 @@
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li class="header">Mainmenu</li>
+            {% if role == 'administrator' %}
             <li class="treeview">
               <a href="{{ static_url() }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
                 <span class="pull-right-container">
@@ -98,11 +99,10 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-folder"></i> <span>User 1</span></a></li>
-                <li><a href="#"><i class="fa fa-folder"></i> <span>User 2</span></a></li>
-                <li><a href="#"><i class="fa fa-folder"></i> <span>Etc..</span></a></li>
+                {{ fragment.userList() }}
               </ul>
             </li>
+            {% endif %}
             <li><a href="{{ url("client/index/") }}"><i class="fa fa-user"></i> <span>Clients</span></a></li>
             <li><a href="{{ url("clientcontact/index/") }}"><i class="fa fa-users"></i> <span>Client Contacts</span></a></li>
             <li><a href="{{ url("project/index/") }}"><i class="fa fa-folder"></i> <span>Projects</span></a></li>

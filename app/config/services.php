@@ -8,6 +8,7 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Security;
+use PhalconTime\Controllers\Component\UserFragment;
 
 /**
  * Shared configuration service
@@ -142,3 +143,11 @@ $di->set('security', function () {
 
     return $security;
 }, true);
+
+/**
+ * Register UserFragment
+ * the fragment can be used to display a user list
+ */
+$di->set('fragment', function() {
+    return new UserFragment();
+});
