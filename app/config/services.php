@@ -8,13 +8,15 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Security;
+// use Phalcon\Cache\Frontend\Data as FrontendData;
+// use Phalcon\Cache\Backend\Memcache as BackendMemcache;
 use PhalconTime\Controllers\Component\UserFragment;
 
 /**
  * Shared configuration service
  */
 $di->setShared('config', function () {
-    return require APP_PATH . "/config/config.php";
+    return require APP_PATH . "/config/config_dev.php";
 });
 
 /**
@@ -99,6 +101,35 @@ $di->setShared('url', function () {
 $di->set('router', function () {
     return require APP_PATH . '/config/routes.php';
 });
+
+/**
+ * Set modelsCache
+ * NOTE Requires memcache plugin
+ * @see https://forum.phalconphp.com/discussion/2571/class-phalcon-session-adapter-memcache-not-found
+ * @see http://pecl.php.net/package/memcache/3.0.8/windows
+ */
+// $di->set(
+//     'modelsCache',
+//     function () {
+//         // Cache data for one day (default setting)
+//         $frontCache = new FrontendData(
+//             [
+//                 'lifetime' => 86400,
+//             ]
+//         );
+//
+//         // Memcached connection settings
+//         $cache = new BackendMemcache(
+//             $frontCache,
+//             [
+//                 'host' => 'localhost',
+//                 'port' => '11211',
+//             ]
+//         );
+//
+//         return $cache;
+//     }
+// );
 
 /**
  * If the configuration specify the use of metadata adapter use it or use memory otherwise
