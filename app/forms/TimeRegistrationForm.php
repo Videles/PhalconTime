@@ -38,7 +38,7 @@ class TimeregistrationForm extends Form
         }
 
         // Project
-        $project = new Select('project_id', Project::find(), [
+        $project = new Select('project_id', Project::findByDelivered(0), [
             'using'      => ['id', 'name'],
             'useEmpty'   => true,
             'emptyText'  => 'Select project',
