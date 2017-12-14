@@ -13,7 +13,6 @@ class TimeRegistrationController extends ControllerBase
         $timeregistration = TimeRegistration::find();
 
         $this->view->timeregistration = $timeregistration;
-
     }
 
     /**

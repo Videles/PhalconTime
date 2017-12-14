@@ -70,7 +70,11 @@
 {% block javascripts %}
 <script type="text/javascript">
     $(function(){
-        $("#projectTable").DataTable();
+        $("#projectTable").DataTable({
+            'order': [
+                [ 0, 'desc' ]
+            ]
+        });
     });
 </script>
 {% endblock %}

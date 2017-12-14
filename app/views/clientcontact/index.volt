@@ -72,7 +72,11 @@
 {% block javascripts %}
 <script type="text/javascript">
     $(function(){
-        $("#clientContactTable").DataTable();
+        $("#clientContactTable").DataTable({
+            'order': [
+                [ 0, 'desc' ]
+            ]
+        });
     });
 </script>
 {% endblock %}

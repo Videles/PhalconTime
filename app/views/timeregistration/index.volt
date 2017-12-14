@@ -82,7 +82,15 @@
 {% block javascripts %}
 <script type="text/javascript">
     $(function(){
-        $("#timeregistrationTable").DataTable();
+        var data = [];
+        $("#timeregistrationTable").DataTable({
+            'order': [
+                [ 0, 'desc' ]
+            ],
+            'columnDefs': [
+              { 'orderable': false, 'targets': [5,6,7,9,10] }
+            ]
+        });
     });
 </script>
 {% endblock %}
