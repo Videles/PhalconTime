@@ -79,9 +79,7 @@
 <script type="text/javascript">
     $(function(){
         $("#clientTable").DataTable({
-            'order': [
-                [ 0, 'desc' ]
-            ]
+            'order': [ 0, 'asc' ]
         });
     });
 </script>

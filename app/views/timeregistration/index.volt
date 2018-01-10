@@ -84,9 +84,7 @@
     $(function(){
         var data = [];
         $("#timeregistrationTable").DataTable({
-            'order': [
-                [ 0, 'desc' ]
-            ],
+            'order': [ 0, 'desc' ],
             'columnDefs': [
               { 'orderable': false, 'targets': [5,6,7,9,10] }
             ]
