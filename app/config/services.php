@@ -70,6 +70,7 @@ $di->setShared('view', function () {
             // Custom volt functions
             $compiler = $volt->getCompiler();
             $compiler->addFunction('split', 'explode');
+            $compiler->addFunction('round', 'round');
 
             return $volt;
         },

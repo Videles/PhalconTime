@@ -88,7 +88,7 @@
                </table>
             </div>
             <div class="col-xs-12">
-                <p><strong>Total hours booked: {{ totalTimeBooked }} hour{% if totalTimeBooked >= 2 %}s{% endif %}</strong></p>
+                <p><strong>Total hours booked: {{ round(totalTimeBooked, 2) }} hour{% if totalTimeBooked >= 2 %}s{% endif %}</strong></p>
             </div>
         </div>
     </div>
