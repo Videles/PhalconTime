@@ -1,6 +1,7 @@
 <?php
 use PhalconTime\Forms\TimeRegistrationForm;
 use PhalconTime\Models\TimeRegistration;
+use PhalconTime\Models\Project;
 
 class TimeRegistrationController extends ControllerBase
 {
@@ -23,6 +24,12 @@ class TimeRegistrationController extends ControllerBase
         if($project_id) {
             $this->tag->setDefault("project_id", $project_id);
 
+            $project = Project::findById($project_id);
+            if($project->delivered) {
+                $this->flash->error('This project is already delivered. Unable to book time.');
+                return $this->dispatcher->forward(["controller" => "timeregistration", "action" => "index" ]);
+            }
+
             $registeredTime = TimeRegistration::findByProjectId($project_id);
             $this->view->setVar('registeredTime', $registeredTime);
         }
@@ -38,6 +45,12 @@ class TimeRegistrationController extends ControllerBase
             $timeregistration = TimeRegistration::findFirstById($id);
             if (!$timeregistration) {
                 $this->flash->error('Time registration not found');
+                return $this->dispatcher->forward(["controller" => "timeregistration", "action" => "index" ]);
+            }
+
+            $project = Project::findById($timeregistration->project_id);
+            if($project->delivered) {
+                $this->flash->error('This project is already delivered. Unable to book time.');
                 return $this->dispatcher->forward(["controller" => "timeregistration", "action" => "index" ]);
             }
 
@@ -57,6 +70,12 @@ class TimeRegistrationController extends ControllerBase
         $form               = new TimeRegistrationForm;
         $timeregistration   = new TimeRegistration;
         $data               = $this->request->getPost();
+
+        $project = Project::findById($data['project_id']);
+        if($project->delivered) {
+            $this->flash->error('This project is already delivered. Unable to book time.');
+            return $this->dispatcher->forward(["controller" => "timeregistration", "action" => "index" ]);
+        }
 
         if (!$form->isValid($data, $timeregistration)) {
             foreach ($form->getMessages() as $message) {
@@ -94,6 +113,12 @@ class TimeRegistrationController extends ControllerBase
 
         if (!$timeregistration) {
             $this->flash->error("Time registration not found");
+            return $this->dispatcher->forward(["controller" => "timeregistration", "action" => "index" ]);
+        }
+
+        $project = Project::findById($timeregistration->project_id);
+        if($project->delivered) {
+            $this->flash->error('This project is already delivered. Unable to book time.');
             return $this->dispatcher->forward(["controller" => "timeregistration", "action" => "index" ]);
         }
 

@@ -38,7 +38,11 @@
                             <td width="80px" >{% if project.delivered %} Yes {% else %} No {%  endif %}</td>
                             <td width="150px" >{{ project.modified }}</td>
                             <td width="120px">
-                                <a class="btn btn-default btn-sm" href="{{ url("timeregistration/new/" ~ project.id) }}" title="add time" ><i class="fa fa-plus"></i></a>
+                                {% if project.delivered == 0 %}
+                                    <a class="btn btn-default btn-sm" href="{{ url("timeregistration/new/" ~ project.id) }}" title="add time" ><i class="fa fa-plus"></i></a>
+                                {% else %}
+                                    <span style="display: inline-block; width: 30px;" ></span>
+                                {% endif %}
                                 <a class="btn btn-default btn-sm" href="{{ url("project/edit/" ~ project.id) }}" title="update" ><i class="fa fa-pencil"></i></a>
                                 {% if role == 'administrator' %}
                                     <a class="btn btn-default btn-sm" href="{{ url("project/confirm/" ~ project.id) }}" title="delete" ><i class="fa fa-trash"></i></a>
